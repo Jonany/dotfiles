@@ -2,8 +2,19 @@
 
 date=$(date +'%a %F %R')
 cpu=$(sensors | grep 'Package' | cut -f 5 -d ' ' | sed 's/+//g' | sed 's/\.0//g')
-#loadavg_1min=$(cat /proc/loadavg | awk -F ' ' '{print $1}' | sed 's/0\.//g')%
-volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -f 2 -d ' ' | sed 's/0\.//g')%
+
+### VOLUME
+vol_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -f 2-3 -d ' ')
+vol_percent=$(echo $vol_info | awk '{print $1*100}')%
+vol_mute=$(echo $vol_info | cut -f 2 -d ' ' | sed 's/\[//g' | sed 's/\]//g')
+case $vol_mute in
+	MUTED)
+		volume='X'
+		;;
+	*)
+		volume=$(echo $vol_percent)
+		;;
+esac
 
 ### BATTERY
 battery=$(acpi -b | awk -F'[, ]' '{print $3,$5}')
@@ -26,9 +37,41 @@ case $charge_status in
 esac
 
 
+### NETWORK
 network=$(/sbin/iwconfig wlp2s0 | grep ESSID | cut -f 8 -d ' ' | sed 's/ESSID\:"//g' | sed 's/"//g')
-wifi_strength=$(/sbin/iwconfig wlp2s0 | grep Quality | cut -f 2 -d '=' | cut -f 1 -d ' ' | awk -F'[/]' '{perc=($1/$2)*100; printf("%d",perc)}')%
+case $network in
+	ESSID:off/any)
+		network_status='Disconnected'
+		;;
+	*)
+		network_status='Connected'
+		;;
+esac
+#wifi_strength=$(/sbin/iwconfig wlp2s0 | grep Quality | cut -f 2 -d '=' | cut -f 1 -d ' ' | awk -F'[/]' '{perc=($1/$2)*100; printf("%d",perc)}')%
 #ext_ping=$(ping -c 1 1.1.1.1 | tail -1 | awk '{print $4}' | cut -f 2 -d '/' | cut -f 1 -d '.')ms
 #int_ping=$(ping -c 1 192.168.0.1 | tail -1 | awk '{print $4}' | cut -f 2 -d '/' | cut -f 1 -d '.')ms
 
-echo $volume // $bat_percent$charge_icon // $cpu // $network $wifi_strength // $date
+
+### BLUETOOTH
+bt_connected_dev_info=$(bluetoothctl devices Connected)
+bt_connected_dev=$(echo $bt_connected_dev_info | cut -f 3 -d ' ')
+bt_connected_dev_mac=$(echo $bt_connected_dev_info | cut -f 2 -d ' ')
+bt_dev_battery=$(bluetoothctl info $bt_connected_dev_mac | grep 'Battery Percentage' | cut -f 2 -d '(' | cut -f 1 -d ')')
+bt_power_state=$(bluetoothctl show | grep PowerState | cut -f 2 -d ' ')
+case $bt_power_state in
+	on)
+		if [ -z "$bt_connected_dev" ]; then
+			bt_status=''
+		else
+			bt_status="$bt_connected_dev ($bt_dev_battery%) // "
+		fi
+		;;
+	off)
+		bt_status='OFF // '
+		;;
+	*)
+		bt_status=$bt_power_state
+		;;
+esac
+
+echo $bt_status$volume // $bat_percent$charge_icon // $cpu // $network_status // $date
