@@ -1,0 +1,5 @@
+Did manuall install of this theme and then used the gsettings command to change theme. Brave picked up the change without having to restart. I did have to tell it use system border by right-clicking and selected that option. It had weird spacing without that.
+
+https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Light'
