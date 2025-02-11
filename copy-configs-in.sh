@@ -18,6 +18,9 @@ cp -r ~/.config/ftpserver config/
 echo "Copying ~/.config/lsd"
 cp -r ~/.config/lsd config/
 
+echo "Copying ~/.config/minidlna"
+cp -r ~/.config/minidlna config/
+
 echo "Copying ~/.config/mpv"
 cp -r ~/.config/mpv config/
 
