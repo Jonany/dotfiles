@@ -15,9 +15,6 @@ cp -r ~/.config/wezterm config/
 echo "Copying ~/.config/ftpserver"
 cp -r ~/.config/ftpserver config/
 
-echo "Copying ~/.config/gerbera"
-cp -r ~/.config/gerbera config/
-
 echo "Copying ~/.config/lsd"
 cp -r ~/.config/lsd config/
 
