@@ -15,6 +15,7 @@ export XDG_PICTURES_DIR=$HOME/media/pictures
 export BUN_INSTALL="$HOME/.bun"
 export FNM_PATH="$HOME/.local/share/fnm"
 export WEZTERM_CONFIG_FILE="$HOME/.config/wezterm/config.lua"
+export VIMRUNTIME=/usr/local/share/nvim/runtime
 
 export PATH=$BUN_INSTALL/bin:$PATH
 export PATH=$PATH:$HOME/bin

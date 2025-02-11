@@ -26,6 +26,7 @@ cp -r ~/.config/mpv config/
 
 echo "Copying ~/.config/nvim"
 cp -r ~/.config/nvim config/
+rm config/nvim/lazy-lock.json
 
 echo "Copying ~/.config/sway"
 cp -r ~/.config/sway config/
