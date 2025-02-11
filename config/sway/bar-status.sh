@@ -47,9 +47,6 @@ case $network in
 		network_status='Connected'
 		;;
 esac
-#wifi_strength=$(/sbin/iwconfig wlp2s0 | grep Quality | cut -f 2 -d '=' | cut -f 1 -d ' ' | awk -F'[/]' '{perc=($1/$2)*100; printf("%d",perc)}')%
-#ext_ping=$(ping -c 1 1.1.1.1 | tail -1 | awk '{print $4}' | cut -f 2 -d '/' | cut -f 1 -d '.')ms
-#int_ping=$(ping -c 1 192.168.0.1 | tail -1 | awk '{print $4}' | cut -f 2 -d '/' | cut -f 1 -d '.')ms
 
 
 ### BLUETOOTH

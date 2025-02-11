@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term wezterm 
+set $term wezterm --config-file "/home/jonany/.config/wezterm/config.lua" 
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -25,7 +25,7 @@ set $menu bemenu-run --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5"
 
 # Added these in October 2024 to try to theme MusicBrainz Picard.
 exec export QT_QPA_PLATFORMTHEME=qt5ct
-exec export QT_STYLE_OVERRIDE=kvantum
+exec export QT_STYLE_OVERRIDE=Fusion
 
 include /etc/sway/config-vars.d/*
 
@@ -213,5 +213,9 @@ bindsym $mod+Shift+p exec grimshot --notify save area $XDG_SCREENSHOTS_DIR/$(dat
 # Brightness
 bindsym XF86MonBrightnessDown exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
+
+# Display
+#   Toggles laptop display on or off. Useful for games that move by touching screen edges like AoE.
+bindsym $mod+F7 output eDP-1 toggle
 
 include /etc/sway/config.d/*

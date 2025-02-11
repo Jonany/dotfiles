@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "accesses": [
+    {
+      "user": "ftp-user",
+      "pass": "ftp1234",
+      "fs": "os",
+      "read_only": true,
+      "shared": true,
+      "params": {
+        "basePath": "/home/jonany/media"
+      }
+    }
+  ],
+  "passive_transfer_port_range": {
+    "start": 2122,
+    "end": 2130
+  }
+}

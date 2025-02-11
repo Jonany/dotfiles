@@ -14,6 +14,7 @@ export XDG_PICTURES_DIR=$HOME/media/pictures
 #export XDG_DATA_DIRS=$XDG_DATA_DIRS:$XDG_CONFIG_HOME/darkman/dark-mode.d:$XDG_CONFIG_HOME/darkman/light-mode.d
 export BUN_INSTALL="$HOME/.bun"
 export FNM_PATH="$HOME/.local/share/fnm"
+export WEZTERM_CONFIG_FILE="$HOME/.config/wezterm/config.lua"
 
 export PATH=$BUN_INSTALL/bin:$PATH
 export PATH=$PATH:$HOME/bin
