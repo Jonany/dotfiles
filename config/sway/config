@@ -2,10 +2,12 @@
 
 # This picks up the GUI prompts to enter root password. Needed for certain GUI-bound apps.
 exec /usr/lib/x86_64-linux-gnu/ukui-polkit/polkit-ukui-authentication-agent-1
+# XDG desktop portal stuff
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt. Mod4 for Super.
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
@@ -24,8 +26,8 @@ set $menu bemenu-run --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5"
 #set $menu bemenu-run -i | xargs swaymsg exec --
 
 # Added these in October 2024 to try to theme MusicBrainz Picard.
-exec export QT_QPA_PLATFORMTHEME=qt5ct
-exec export QT_STYLE_OVERRIDE=Fusion
+#exec export QT_QPA_PLATFORMTHEME=qt5ct
+#exec export QT_STYLE_OVERRIDE=Fusion
 
 include /etc/sway/config-vars.d/*
 

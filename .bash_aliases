@@ -55,3 +55,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+alias zen="$HOME/bin/zen/zen"
