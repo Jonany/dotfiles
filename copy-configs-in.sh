@@ -9,9 +9,6 @@ cp ~/.bash_profile .
 echo "Copying ~/.bashrc"
 cp ~/.bashrc .
 
-echo "Copying ~/.config/wezterm"
-cp -r ~/.config/wezterm config/
-
 echo "Copying ~/.config/ftpserver"
 cp -r ~/.config/ftpserver config/
 
