@@ -38,7 +38,7 @@ esac
 
 
 ### NETWORK
-network=$(/sbin/iwconfig wlp2s0 | grep ESSID | cut -f 8 -d ' ' | sed 's/ESSID\:"//g' | sed 's/"//g')
+network=$(/sbin/iwconfig wlan0 | grep ESSID | cut -f 8 -d ' ' | sed 's/ESSID\:"//g' | sed 's/"//g')
 case $network in
 	ESSID:off/any)
 		network_status='Disconnected'
