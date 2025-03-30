@@ -20,6 +20,6 @@ return {
 
     -- lua\config\telescope\multigrep.lua
     -- Set keymap
-    -- require('config.telescope.multigrep').setup()
+    require('config.telescope.multigrep').setup()
   end,
 }
