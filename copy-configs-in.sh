@@ -9,27 +9,39 @@ cp ~/.bash_profile .
 echo "Copying ~/.bashrc"
 cp ~/.bashrc .
 
-echo "Copying ~/.config/ftpserver"
-cp -r ~/.config/ftpserver config/
+echo "Copying $XDG_BIN_DIR/random_wallpaper.sh"
+cp $XDG_BIN_DIR/random_wallpaper.sh bin/
 
-echo "Copying ~/.config/lsd"
-cp -r ~/.config/lsd config/
+echo "Copying $XDG_CONFIG_HOME/ftpserver"
+cp -r $XDG_CONFIG_HOME/ftpserver config/
 
-echo "Copying ~/.config/minidlna"
-cp -r ~/.config/minidlna config/
+echo "Copying $XDG_CONFIG_HOME/darkman"
+cp -r $XDG_CONFIG_HOME/darkman config/
 
-echo "Copying ~/.config/mpv"
-cp -r ~/.config/mpv config/
+echo "Copying $XDG_DATA_HOME/dark-mode.d"
+cp -r $XDG_DATA_HOME/dark-mode.d config/darkman/
 
-echo "Copying ~/.config/nvim"
-cp -r ~/.config/nvim config/
+echo "Copying $XDG_DATA_HOME/light-mode.d"
+cp -r $XDG_DATA_HOME/light-mode.d config/darkman/
+
+echo "Copying $XDG_CONFIG_HOME/lsd"
+cp -r $XDG_CONFIG_HOME/lsd config/
+
+echo "Copying $XDG_CONFIG_HOME/minidlna"
+cp -r $XDG_CONFIG_HOME/minidlna config/
+
+echo "Copying $XDG_CONFIG_HOME/mpv"
+cp -r $XDG_CONFIG_HOME/mpv config/
+
+echo "Copying $XDG_CONFIG_HOME/nvim"
+cp -r $XDG_CONFIG_HOME/nvim config/
 rm config/nvim/lazy-lock.json
 
-echo "Copying ~/.config/sway"
-cp -r ~/.config/sway config/
+echo "Copying $XDG_CONFIG_HOME/sway"
+cp -r $XDG_CONFIG_HOME/sway config/
 
-echo "Copying ~/.config/wezterm"
-cp -r ~/.config/wezterm config/
+echo "Copying $XDG_CONFIG_HOME/wezterm"
+cp -r $XDG_CONFIG_HOME/wezterm config/
 
-echo "Copying ~/.config/starship.toml"
-cp -r ~/.config/starship.toml config/
+echo "Copying $XDG_CONFIG_HOME/starship.toml"
+cp -r $XDG_CONFIG_HOME/starship.toml config/
