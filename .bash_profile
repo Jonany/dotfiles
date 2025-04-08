@@ -11,8 +11,12 @@ fi
 export EDITOR=nvim
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_SCREENSHOTS_DIR=$HOME/media/image/screenshots
-export XDG_PICTURES_DIR=$HOME/media/image/pictures
+# Sources XDG environment variables for stuff like Music, Downloads, Pictures, etc.
+if [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ]; then
+    set -a # Enable automatic exporting of all variables
+    . "$XDG_CONFIG_HOME/user-dirs.dirs"
+    set +a # Disable automatic exporting after sourcing
+fi
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:$XDG_CONFIG_HOME/darkman/dark-mode.d
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:$XDG_CONFIG_HOME/darkman/light-mode.d
 export XDG_CURRENT_DESKTOP=sway # xdg-desktop-portal
