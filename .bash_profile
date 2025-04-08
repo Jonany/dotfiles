@@ -17,8 +17,7 @@ if [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ]; then
     . "$XDG_CONFIG_HOME/user-dirs.dirs"
     set +a # Disable automatic exporting after sourcing
 fi
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:$XDG_CONFIG_HOME/darkman/dark-mode.d
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:$XDG_CONFIG_HOME/darkman/light-mode.d
+export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CURRENT_DESKTOP=sway # xdg-desktop-portal
 export XDG_SESSION_DESKTOP=sway # systemd
 export XDG_SESSION_TYPE=wayland # xdg/systemd
