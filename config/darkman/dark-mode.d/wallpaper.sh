@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-$XDG_BIN_DIR/random_wallpaper.sh $XDG_WALLPAPER_DIR dark-
+"$(xdg-user-dir BIN)"/random_wallpaper.sh "$(xdg-user-dir WALLPAPER)" dark-
