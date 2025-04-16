@@ -206,8 +206,8 @@ bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 # 2024-11-20: Trying to figure out Bluetooth controls. KEY_PLAYCD, KEY_PAUSECD, KEY_NEXTSONG, KEY_PREVIOUSSONG. sent twice
 
 # Screenshots
-bindsym $mod+p exec grimshot --notify save output $XDG_SCREENSHOTS_DIR/$(date "+%Y%m%d-%H%M%S").png
-bindsym $mod+Shift+p exec grimshot --notify save area $XDG_SCREENSHOTS_DIR/$(date "+%Y%m%d-%H%M%S").png
+bindsym $mod+p exec grimshot --notify save output $(xdg-user-dir SCREENSHOTS)/$(date "+%Y%m%d-%H%M%S").png
+bindsym $mod+Shift+p exec grimshot --notify save area $(xdg-user-dir SCREENSHOTS)$(date "+%Y%m%d-%H%M%S").png
 
 # Brightness
 bindsym XF86MonBrightnessDown exec light -U 10
