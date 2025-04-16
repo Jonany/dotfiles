@@ -57,3 +57,5 @@ function y() {
 }
 
 alias zen="$HOME/bin/zen/zen"
+
+. "$HOME/bin/shell/fzf-key-bindings.bash"
