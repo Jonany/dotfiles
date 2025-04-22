@@ -38,15 +38,7 @@ esac
 
 
 ### NETWORK
-network=$(/sbin/iwconfig wlan0 | grep ESSID | cut -f 8 -d ' ' | sed 's/ESSID\:"//g' | sed 's/"//g')
-case $network in
-	ESSID:off/any)
-		network_status='Disconnected'
-		;;
-	*)
-		network_status='Connected'
-		;;
-esac
+network_status=$(iwctl station wlan0 show | awk '/State/ {print $2}' | grep -q '^connected$' && echo 'Connected' || echo 'Disconnected')
 
 
 ### BLUETOOTH
