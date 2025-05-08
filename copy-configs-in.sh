@@ -44,6 +44,7 @@ cp $XDG_BIN_DIR/random_wallpaper.sh bin/
 
 echo "Copying $XDG_CONFIG_HOME/sway"
 cp -r $XDG_CONFIG_HOME/sway config/
+rm config/sway/theme-colors
 
 echo "Copying $XDG_CONFIG_HOME/starship.toml"
 cp -r $XDG_CONFIG_HOME/starship.toml config/

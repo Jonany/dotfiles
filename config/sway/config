@@ -15,15 +15,30 @@ set $down j
 set $up k
 set $right l
 
+# Sets color name variables
+include theme-colors
+
 # Your preferred terminal emulator
-set $term wezterm --config-file "/home/jonany/.config/wezterm/config.lua" 
+set $term wezterm --config-file "/home/jonany/.config/wezterm/config.lua"
 
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# Catppuccin Frappé
-set $menu bemenu-run --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --af "#c6d0f5" --ab "#303446" | xargs swaymsg exec --
-#set $menu bemenu-run -i | xargs swaymsg exec --
+# --fb,--ff are for the search (filter)
+# --hb,--hf are for the currently highlighted search result
+set $menu bemenu-run \
+    --fb "$base" --ff "$text" \
+    --nb "$base" --nf "$text" \
+    --ab "$base" --af "$text" \
+    --hb "$focused_base" --hf "$text" \
+    --fn "JetBrains Mono 20" \
+    --list 3 \
+    --line-height 40 \
+    --width-factor 0.33 \
+    --margin 10 \
+    --center \
+    --no-overlap \
+    --ignorecase \
+    --prompt '' \
+    | xargs swaymsg exec --
 
 # Added these in October 2024 to try to theme MusicBrainz Picard.
 #exec export QT_QPA_PLATFORMTHEME=qt5ct
@@ -169,9 +184,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Sets color name variables
-include catppuccin-mocha
-
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
@@ -179,20 +191,15 @@ bar {
     position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
     status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
 
+    font JetBrains Mono 14
     colors {
         statusline $text
         background $base
-        focused_statusline $text
-	focused_separator  $base
-	focused_workspace  $base $base $blue
-	active_workspace   $base $base $blue
-	inactive_workspace $base $base $surface1
-	urgent_workspace   $base $base $surface1
-	binding_mode       $base $base $surface1
+    	focused_workspace $focused_base $focused_base $text
+        active_workspace $base $base $text
+        inactive_workspace $base $base $text
     }
 }
 

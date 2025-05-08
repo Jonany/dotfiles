@@ -1,0 +1,3 @@
+set $base #e6e7ed
+set $focused_base #c4c8da
+set $text #2959aa
