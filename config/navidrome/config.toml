@@ -1,0 +1,20 @@
+# Artwork
+ArtistArtPriority = "artist.*, album/artist.*"
+CoverArtPriority = "cover.*, folder.*, front.*, embedded"
+EnableCoverAnimation = false
+# Caching
+EnableArtworkPrecache = false
+ImageCacheSize = "0"
+TranscodingCacheSize = "0"
+# Features
+EnableStarRating = false
+EnableTranscodingConfig = true
+# Playlists
+AutoImportPlaylists = true
+DefaultPlaylistPublicVisibility = true
+PlaylistsPath = "music/playlists"
+# Services
+EnableExternalServices = false
+# Etc
+#LogLevel: debug
+
