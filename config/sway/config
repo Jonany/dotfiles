@@ -40,6 +40,27 @@ set $menu bemenu-run \
     --prompt '' \
     | xargs swaymsg exec --
 
+# Status Bar:
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
+
+    font JetBrains Mono 14
+    colors {
+        statusline $text
+        background $base
+        focused_workspace $focused_base $focused_base $text
+        active_workspace $base $base $text
+        inactive_workspace $base $base $text
+    }
+}
+
+# Remove the window title
+default_border none
+
 # Added these in October 2024 to try to theme MusicBrainz Picard.
 #exec export QT_QPA_PLATFORMTHEME=qt5ct
 #exec export QT_STYLE_OVERRIDE=Fusion
@@ -184,24 +205,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-# Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
-
-    font JetBrains Mono 14
-    colors {
-        statusline $text
-        background $base
-    	focused_workspace $focused_base $focused_base $text
-        active_workspace $base $base $text
-        inactive_workspace $base $base $text
-    }
-}
 
 # Keyboard Shortcuts:
 # Audio Shortcuts
