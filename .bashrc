@@ -116,3 +116,5 @@ eval -- "$(/usr/local/bin/starship init bash --print-full-init)"
 
 # Created by `pipx` on 2025-02-17 16:43:06
 export PATH="$PATH:/home/jonany/.local/bin"
+
+. "$HOME/.local/share/../bin/env"
