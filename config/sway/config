@@ -4,6 +4,8 @@
 exec /usr/lib/x86_64-linux-gnu/ukui-polkit/polkit-ukui-authentication-agent-1
 # XDG desktop portal stuff
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# Night shift
+exec wlsunset -S 07:00 -s 20:00
 
 ### Variables
 #
@@ -51,6 +53,7 @@ bar {
     #status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
 
     font JetBrains Mono 14
+
     colors {
         statusline $text
         background $base
@@ -80,6 +83,9 @@ output HDMI-A-1 res 1920x1080@60Hz pos 0 0
 # Basics:
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start Brave
+    bindsym $mod+b exec brave-browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -153,7 +159,7 @@ output HDMI-A-1 res 1920x1080@60Hz pos 0 0
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    #bindsym $mod+b splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -230,3 +236,4 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym $mod+F7 output eDP-1 toggle
 
 include /etc/sway/config.d/*
+
