@@ -52,3 +52,6 @@ cp -r $XDG_CONFIG_HOME/starship.toml config/
 echo "Copying $XDG_CONFIG_HOME/wezterm"
 cp -r $XDG_CONFIG_HOME/wezterm config/
 
+echo "Copying $XDG_CONFIG_HOME/waybar"
+cp -r $XDG_CONFIG_HOME/waybar config/
+
