@@ -45,8 +45,10 @@ set $menu bemenu-run \
 bar {
     position top
 
+    swaybar_command waybar
     # When the status_command prints a new line to stdout, swaybar updates.
-    status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
+    # 2025-07-31: This has been really slow in responding to volume changes lately.
+    #status_command while $HOME/.config/sway/bar-status.sh; do sleep 1; done
 
     font JetBrains Mono 14
     colors {

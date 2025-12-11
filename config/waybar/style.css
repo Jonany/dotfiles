@@ -1,0 +1,74 @@
+@define-color bg_dark #1A1B26;
+@define-color bg_dark_focused #414868;
+@define-color fg_dark #C0CAF5;
+
+@define-color bg_light #E6E7ED;
+@define-color bg_light_focused #C4C8DA;
+@define-color fg_light #2959AA;
+
+@define-color bg @bg_dark;
+@define-color bg_focused @bg_dark_focused;
+@define-color fg @fg_dark;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: JetBrains Mono;
+    font-size: 16px;
+    color: @fg;
+    background-color: @bg;
+}
+
+#backlight,
+#battery,
+#bluetooth,
+#clock,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#wireplumber
+{
+    padding: 0 10px;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 4px;
+    color: @fg;
+    border-radius: 4px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: @bg_focused;
+    color: @fg;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
