@@ -1,0 +1,8 @@
+[defaults]
+profile = "default"
+binary_only = true
+
+[packages]
+ouch = "*"
+ya = { version = "*", repo = "pkgforge-cargo" }
+yazi = { version = "*", repo = "pkgforge-cargo" }

@@ -46,6 +46,9 @@ echo "Copying $XDG_CONFIG_HOME/sway"
 cp -r $XDG_CONFIG_HOME/sway config/
 rm config/sway/theme-colors
 
+echo "Copying $XDG_CONFIG_HOME/soar"
+cp -r $XDG_CONFIG_HOME/soar config/
+
 echo "Copying $XDG_CONFIG_HOME/starship.toml"
 cp -r $XDG_CONFIG_HOME/starship.toml config/
 

@@ -36,6 +36,8 @@ export PATH=$PATH:$HOME/bin/zig
 export PATH=$PATH:$HOME/bin/helix
 export PATH=$PATH:/opt/nvim-linux64/bin
 export PATH=$PATH:$HOME/.spicetify
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/share/soar/bin
 
 # Tell Vulkan to use the Intel GPU instead of trying to use VIRTGPU
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json
